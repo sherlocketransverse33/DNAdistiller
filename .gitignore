@@ -31,8 +31,16 @@ FTDNA*
 LivingDNA*
 tellmeGen*
 
-# Generated profiles — these contain your actual results
-profile.*
+# Generated profiles — these contain your actual results.
+#
+# Anchored to the repo root with a leading slash, and restricted to the formats
+# the tool actually emits. The obvious version of this rule is `profile.*`, and
+# it is wrong: it silently swallowed src/dnadistiller/profile.py, so the first
+# published commit shipped a package that could not import itself. Keep these
+# patterns narrow. A rule broad enough to catch source is a rule that will.
+/profile.md
+/profile.json
+/profile.txt
 *.profile.md
 *.profile.json
 dnadistiller-profile*

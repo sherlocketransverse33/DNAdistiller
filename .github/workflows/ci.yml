@@ -24,6 +24,21 @@ jobs:
       - name: Install
         run: uv sync --all-extras --python ${{ matrix.python-version }}
 
+      # First, and deliberately so. This checks the thing every other step
+      # assumes: that what is committed is a package that can import itself.
+      #
+      # It is here because it was not, and nobody noticed. A .gitignore rule
+      # meant to block generated profiles (`profile.*`) also matched
+      # src/dnadistiller/profile.py, so the first published commit shipped a
+      # package where `--help` raised ModuleNotFoundError. The test suite ran
+      # green locally the whole time, because locally the file was on disk.
+      #
+      # Tests cannot catch this. They only ever see the working tree.
+      - name: Package imports from a clean checkout
+        run: |
+          uv run dnadistiller --version
+          uv run python -c "import dnadistiller.profile, dnadistiller.cli, dnadistiller.catalog"
+
       - name: Lint
         run: uv run ruff check src tests
 
