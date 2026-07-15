@@ -1,0 +1,96 @@
+# Folate metabolism and methylation.
+#
+# This file exists mostly to say something honest about MTHFR, which is the most
+# over-interpreted marker in consumer genomics. It is the catalog's reference
+# case for the `weak` grade, so the evidence against it is written out at length
+# rather than asserted.
+
+- id: mthfr_c677t
+  gene: MTHFR
+  name: Folate enzyme activity (C677T)
+  category: methylation
+  evidence: weak
+  rsids: [rs1801133]
+
+  # C/T on the plus strand, matching the C677T name directly. No flip needed.
+  effect_allele: T
+
+  summary: >-
+    Reduces the activity of an enzyme in folate metabolism. Widely claimed online
+    to cause a long list of conditions. The evidence for that does not hold up,
+    and the effect it does have has largely been engineered away by food policy.
+  effect_size: >-
+    The biochemical effect is real but folate-dependent: TT raises homocysteine by
+    about 3.12 umol/L in low-folate populations and about 0.13 umol/L in regions
+    with folic acid fortification. The clinical effect is null. Publication-bias-
+    corrected Mendelian randomisation puts TT vs CC at OR 1.02 (0.98-1.07) for
+    coronary disease.
+  ancestry_note: >-
+    The T allele is common everywhere, at roughly 36% in Europeans. Frequency
+    varies widely (about 10-40%) and the homocysteine effect depends more on local
+    folate fortification policy than on ancestry.
+  citations:
+    - "PMID:7647779"
+    - "PMID:22363213"
+    - "PMID:23288205"
+
+  blood_test:
+    name: "Homocysteine, plus B12 and folate"
+    note: >-
+      If this result is bothering you, this is the test that settles it. It
+      measures the only thing the variant actually does, and in a country that
+      fortifies flour with folic acid it will most likely come back normal. That
+      is the point.
+    verdict: supersedes
+
+  interpretations:
+    CC:
+      summary: "Typical folate enzyme activity."
+      detail: "The common result. Nothing to note."
+      population_frequency: 0.45
+    CT:
+      summary: "Mildly reduced folate enzyme activity."
+      detail: >-
+        Extremely common, and not considered clinically meaningful on its own.
+      population_frequency: 0.42
+    TT:
+      summary: "Reduced folate enzyme activity."
+      detail: >-
+        Reduced enzyme activity and modestly higher homocysteine. That part is
+        well replicated. You will often see this quoted as "30% of normal
+        activity"; that figure is not attributable to the primary source and NCBI
+        puts it nearer 45%, so treat the precise number with suspicion.
+
+        What is not supported is the rest of what you will read about it.
+
+        The homocysteine effect is folate-dependent and has largely been
+        engineered away. TT raises homocysteine by about 3.12 umol/L where folate
+        is scarce, and by about 0.13 umol/L in countries that fortify flour with
+        folic acid. Food policy did more here than genotype does.
+
+        On coronary disease the effect is null. Clarke 2012 built a Mendelian
+        randomisation analysis from unpublished data (48,175 cases, 67,961
+        controls) specifically to defeat publication bias and found TT vs CC at
+        OR 1.02 (0.98-1.07), still null in low-folate populations. The 86
+        previously published studies gave 1.15 (1.09-1.21), and the authors
+        attributed that discrepancy to publication bias or methodological
+        problems. Homocysteine-lowering trials have been negative for coronary
+        events and mortality.
+
+        One honest exception: a Cochrane review found a small stroke reduction
+        from folic acid (RR 0.90, 0.82-0.99), driven by a single trial in a
+        folate-deficient population. That is a finding about folic acid, not
+        about your genotype, and it does not transfer to fortified countries.
+
+        The American College of Medical Genetics addressed this directly. Its
+        MTHFR statement, reaffirmed in 2020 and reclassified as a Clinical
+        Practice Resource, advises against testing MTHFR for thrombophilia or
+        clinical risk assessment at all.
+
+        If you are here because something told you that you have an "MTHFR
+        mutation": this is a common variant, not a mutation. At 36% allele
+        frequency, "you have an MTHFR variant" describes roughly 10-15% of
+        Europeans as homozygotes. No trial supports methylfolate over ordinary
+        folic acid. A homocysteine blood test would tell you more than the
+        genotype does, and would probably tell you nothing is wrong.
+      population_frequency: 0.13

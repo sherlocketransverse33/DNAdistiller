@@ -1,0 +1,60 @@
+# Lipids and cardiovascular risk.
+
+- id: lpa_cardiovascular
+  gene: LPA
+  name: Lipoprotein(a) level
+  category: lipids
+  evidence: strong
+  rsids: [rs10455872]
+
+  # A/G on the plus strand.
+  effect_allele: G
+
+  summary: >-
+    Lipoprotein(a) is largely set by genetics, barely moves with diet or
+    exercise, and is not on a standard cholesterol panel. Most people never learn
+    their level.
+  effect_size: >-
+    Odds ratio 1.70 (95% CI 1.49-1.95) per copy of the G allele for coronary
+    disease. This locus explains around 25% of the variance in Lp(a) levels,
+    which is a large effect for a single common variant.
+  ancestry_note: >-
+    Established in European-ancestry cohorts, where the risk allele has a
+    frequency around 7%. Lp(a) levels and the genetic architecture behind them
+    differ substantially by ancestry, and this variant is rare outside European
+    populations.
+  citations:
+    - "PMID:20032323"
+
+  blood_test:
+    name: "Lp(a), once in your life"
+    note: >-
+      Better than this genotype, and almost nobody has had it done. Lp(a) is not
+      on a standard cholesterol panel, it barely moves with diet or exercise, and
+      it is stable for life, so a single test settles it. This variant only tags
+      part of the picture: most of the variation comes from KIV-2 repeat number,
+      which no consumer array can see.
+    verdict: supersedes
+
+  interpretations:
+    AA:
+      summary: "No copies of the Lp(a)-raising variant at this locus."
+      detail: >-
+        The common result. It does not rule out high Lp(a): other variants at
+        this gene also raise it, and only a blood test measures the actual level.
+      population_frequency: 0.86
+    AG:
+      summary: "One copy of the Lp(a)-raising variant."
+      detail: >-
+        Associated with higher Lp(a) and raised cardiovascular risk. This is one
+        of the few findings here that points at a specific, cheap, one-off test:
+        Lp(a) is measured once in a lifetime because it barely changes, and it is
+        rarely ordered unless someone asks.
+      population_frequency: 0.13
+    GG:
+      summary: "Two copies of the Lp(a)-raising variant. Uncommon."
+      detail: >-
+        Associated with substantially higher Lp(a). Worth an actual Lp(a) blood
+        test and a conversation with a doctor, particularly if heart disease runs
+        in your family.
+      population_frequency: 0.01

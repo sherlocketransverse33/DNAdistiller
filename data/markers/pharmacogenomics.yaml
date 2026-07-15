@@ -1,0 +1,63 @@
+# Pharmacogenomics.
+#
+# The most actionable category here, and the one to be most careful with. These
+# findings can inform a prescribing conversation. They cannot replace one, and
+# nobody should change a dose because a CLI said something.
+
+- id: slco1b1_statin
+  gene: SLCO1B1
+  name: Statin transport (521T>C)
+  category: pharmacogenomics
+  evidence: strong
+  rsids: [rs4149056]
+
+  # T/C on the plus strand, matching the c.521T>C cDNA notation. C is the
+  # reduced-function allele.
+  effect_allele: C
+
+  summary: >-
+    Affects how quickly the liver takes up statins. Reduced function means more
+    statin stays in circulation, which raises the risk of muscle side effects.
+  effect_size: >-
+    CC carriers have markedly higher simvastatin exposure and a substantially
+    raised risk of statin-associated myopathy. Strongest for simvastatin, weaker
+    for atorvastatin, and largely absent for rosuvastatin and pravastatin.
+  ancestry_note: >-
+    Risk-allele frequency around 15% in European and 14% in Asian ancestry, and
+    lower in African ancestry. Dosing guidance derives mainly from European
+    cohorts.
+  citations:
+    - "PMID:22617227"
+
+  blood_test:
+    verdict: none
+    note: >-
+      There is no blood test that tells you this in advance. Creatine kinase only
+      rises once muscle damage has already happened, which is the thing you were
+      trying to avoid. Mention the genotype to a prescriber instead.
+
+  interpretations:
+    TT:
+      summary: "Typical statin transport."
+      detail: "No raised risk of statin muscle side effects from this variant."
+      population_frequency: 0.73
+    CT:
+      summary: "Intermediate statin transport."
+      detail: >-
+        One reduced-function copy. Modestly raised risk of muscle side effects on
+        simvastatin. There is published prescribing guidance covering this
+        genotype, which makes it worth mentioning to a doctor if a statin is ever
+        discussed. It is not a reason to avoid statins or to stop one you are
+        taking.
+      population_frequency: 0.25
+    CC:
+      summary: "Reduced statin transport."
+      detail: >-
+        Two reduced-function copies, and a substantially raised risk of muscle
+        side effects on simvastatin specifically. Prescribing guidance exists for
+        this genotype and other statins are usually unaffected, so this is a
+        conversation with a prescriber rather than a problem.
+
+        If you are already on a statin and doing fine, this changes nothing. Do
+        not stop a medication because of this result.
+      population_frequency: 0.02

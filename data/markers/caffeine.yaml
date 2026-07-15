@@ -1,0 +1,45 @@
+# Caffeine metabolism.
+
+- id: cyp1a2_caffeine
+  gene: CYP1A2
+  name: Caffeine metabolism rate
+  category: caffeine
+  evidence: moderate
+  rsids: [rs762551]
+
+  # A/C on the plus strand. The A allele (CYP1A2*1F) makes the enzyme more
+  # inducible, so A carriers clear caffeine faster. C is the slow allele.
+  effect_allele: C
+
+  summary: >-
+    How quickly you clear caffeine. One of the few markers here where you can
+    plausibly notice the effect yourself.
+  effect_size: >-
+    Cornelis 2006 found the association between coffee intake and myocardial
+    infarction depended on this genotype: slow metabolisers showed raised risk
+    with heavy intake, fast metabolisers did not. An interaction effect rather
+    than a main effect, and it has not been consistently replicated.
+  ancestry_note: >-
+    Allele frequency varies by population. Established mainly in European and
+    Costa Rican cohorts.
+  citations:
+    - "PMID:16522833"
+
+  interpretations:
+    AA:
+      summary: "Fast caffeine metabolism."
+      detail: >-
+        Two copies of the more inducible enzyme variant. Caffeine clears
+        relatively quickly.
+      population_frequency: 0.4
+    AC:
+      summary: "Intermediate caffeine metabolism."
+      detail: "One copy of the slower-clearing variant."
+      population_frequency: 0.45
+    CC:
+      summary: "Slow caffeine metabolism."
+      detail: >-
+        Caffeine stays in your system longer. If you have noticed that an
+        afternoon coffee costs you sleep, this is consistent with that, though
+        sleep timing, dose, and habituation all matter more than genotype.
+      population_frequency: 0.15

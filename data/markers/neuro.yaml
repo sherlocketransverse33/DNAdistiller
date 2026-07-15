@@ -1,0 +1,105 @@
+# Neurological and cognitive ageing.
+#
+# APOE is the only marker in this file, and it is gated behind
+# --include-sensitive. It is the one place in the catalog where the effect is
+# large enough to matter to an individual, which is exactly why it is the one
+# place where a person should decide to look rather than encounter it.
+
+- id: apoe_isoform
+  gene: APOE
+  name: APOE isoform (Alzheimer's and lipid risk)
+  category: neuro
+  evidence: strong
+  sensitive: true
+
+  # Not a genotype lookup. The unit of meaning is an e2/e3/e4 haplotype spread
+  # across two SNPs, and neither says anything alone. See derive.py for the
+  # diplotype table and the one phase ambiguity an array cannot resolve.
+  rsids: [rs429358, rs7412]
+  derivation: apoe
+
+  # Both SNPs are C/T on the plus strand, which both 23andMe and AncestryDNA
+  # report on. Present on 23andMe v3/v4/v5. NOT computable from AncestryDNA V1:
+  # those files carry rs7412 but not rs429358.
+
+  summary: >-
+    The strongest common genetic signal for late-onset Alzheimer's disease, and
+    a real influence on cholesterol.
+  effect_size: >-
+    Versus e3/e3: e3/e4 OR 3.46 (95% CI 3.27-3.65), e4/e4 OR 13.04 (11.31-15.04)
+    for late-onset Alzheimer's; e2 protective at OR 0.53 (0.48-0.58). Belloy 2023,
+    n=68,756, non-Hispanic White.
+  ancestry_note: >-
+    Effect sizes are substantially smaller outside European ancestry. In the same
+    cohort e4/e4 was OR 6.49 in non-Hispanic Black and OR 3.62 in Hispanic
+    individuals, and e2's protection was smaller and not significant in Hispanic
+    individuals. The headline numbers do not transfer.
+  citations:
+    - "PMID:9343467"
+    - "DOI:10.1001/jamaneurol.2023.3599"
+
+  blood_test:
+    name: "A lipid panel, for the half of this that is actionable"
+    note: >-
+      No blood test screens for Alzheimer's risk in someone without symptoms, so
+      the genotype is all there is on that side, and there is nothing to do with
+      it beyond the things everyone should do anyway. APOE also affects
+      cholesterol, and that half is measurable and treatable.
+    verdict: complements
+
+  interpretations:
+    e3/e3:
+      summary: "The most common type at this locus. Typical baseline risk."
+      detail: >-
+        Around 60% of people of European ancestry carry this. It is the reference
+        against which the other types are measured, so this is the ordinary result.
+      population_frequency: 0.6
+    e3/e4:
+      summary: "One copy of the higher-risk type at this locus."
+      detail: >-
+        Roughly 3.5x the odds of late-onset Alzheimer's compared with e3/e3.
+        That is a relative number and it is not a diagnosis: most people with one
+        copy never develop Alzheimer's, and most people who do develop it do not
+        carry e4. Age, family history, and cardiovascular health all matter here.
+      population_frequency: 0.21
+    e4/e4:
+      summary: "Two copies of the higher-risk type at this locus."
+      detail: >-
+        Roughly 13x the odds of late-onset Alzheimer's compared with e3/e3, the
+        largest common-variant effect in this catalog by a wide margin. Still not
+        a diagnosis or a certainty. This is a result worth discussing with a
+        doctor or genetic counsellor rather than with an internet search.
+      population_frequency: 0.02
+    e2/e3:
+      summary: "One copy of the protective type at this locus."
+      detail: >-
+        e2 is associated with lower Alzheimer's risk than e3/e3 (OR about 0.53).
+        It is also associated with type III hyperlipoproteinaemia in rare cases,
+        which is a lipid condition rather than a neurological one.
+      population_frequency: 0.11
+    e2/e2:
+      summary: "Two copies of the protective type at this locus. Uncommon."
+      detail: >-
+        Lower Alzheimer's risk. Carries a raised risk of type III
+        hyperlipoproteinaemia, which is uncommon and usually needs a second
+        trigger to appear. A lipid panel says more about this than the genotype.
+      population_frequency: 0.005
+    e2/e4:
+      summary: "One protective and one higher-risk copy."
+      detail: >-
+        The two pull in opposite directions and the net effect is close to
+        baseline, though estimates are imprecise because this combination is
+        uncommon. This is also the one APOE result an array cannot fully resolve,
+        for reasons the tool will have told you alongside it.
+      population_frequency: 0.02
+    e1/e2:
+      summary: "A rare type at this locus, combined with a protective copy."
+      detail: "e1 is extremely rare and poorly characterised. Interpret with care."
+    e1/e4:
+      summary: "A rare type at this locus, combined with a higher-risk copy."
+      detail: "e1 is extremely rare and poorly characterised. Interpret with care."
+    e1/e1:
+      summary: "An extremely rare type at this locus."
+      detail: >-
+        Essentially unreported in the literature. This is more likely a
+        genotyping error than a real result. Confirm before believing it.

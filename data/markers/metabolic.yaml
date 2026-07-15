@@ -1,0 +1,139 @@
+# Metabolism: glucose, body weight, and alcohol.
+
+- id: tcf7l2_t2d
+  gene: TCF7L2
+  name: Type 2 diabetes risk
+  category: metabolic
+  evidence: strong
+  rsids: [rs7903146]
+
+  # C/T on the plus strand.
+  effect_allele: T
+
+  summary: >-
+    The largest common genetic effect on type 2 diabetes risk. Affects insulin
+    secretion rather than insulin resistance.
+  effect_size: >-
+    Odds ratio around 1.4 per copy of the T allele. Large for a common variant,
+    and still small next to body weight, activity, and age.
+  ancestry_note: >-
+    One of the most consistently replicated diabetes loci across ancestries,
+    which is unusual and makes it more trustworthy than most of this catalog.
+  citations:
+    - "PMID:16415884"
+
+  blood_test:
+    name: "HbA1c, or a fasting glucose"
+    note: >-
+      Measures what this variant only predicts. Your actual glucose control is
+      worth more than your starting odds, and it is a routine test any GP will
+      run.
+    verdict: supersedes
+
+  interpretations:
+    CC:
+      summary: "Typical type 2 diabetes risk at this locus."
+      population_frequency: 0.5
+    CT:
+      summary: "Modestly raised type 2 diabetes risk at this locus."
+      detail: >-
+        One copy of the risk allele. An HbA1c or fasting glucose test measures
+        what is actually happening and is worth more than this prediction.
+      population_frequency: 0.4
+    TT:
+      summary: "Raised type 2 diabetes risk at this locus."
+      detail: >-
+        Two copies. Roughly double the odds versus CC. This describes a starting
+        point rather than a destination: the modifiable risk factors dominate,
+        and diabetes prevention works about as well regardless of genotype.
+      population_frequency: 0.1
+
+- id: fto_bmi
+  gene: FTO
+  name: Body weight set point
+  category: metabolic
+  evidence: strong
+  rsids: [rs9939609]
+
+  # A/T on the plus strand, which makes this the one STRAND-AMBIGUOUS marker in
+  # the catalog: the complement of a valid genotype is another valid genotype, so
+  # a flip cannot be detected from the call alone. The interpreter refuses to
+  # guess here rather than risk inverting the result. Safe in practice because
+  # every major provider reports on the plus strand, and a plus-strand call
+  # matches these keys directly. Do not "fix" a mismatch here by flipping.
+  effect_allele: A
+
+  summary: >-
+    The best-replicated common variant affecting body weight. The effect is real
+    and it is small.
+  effect_size: >-
+    About 0.39 kg per copy of the A allele, and roughly 1.2x the odds of
+    obesity per copy. Two copies is worth under a kilogram on average, which is
+    inside the noise of a normal week.
+  ancestry_note: >-
+    Robust in European-ancestry cohorts. Weaker and inconsistent in
+    African-ancestry samples, where the linkage structure at this locus differs.
+  citations:
+    - "PMID:17434869"
+
+  interpretations:
+    TT:
+      summary: "Typical body weight set point at this locus."
+      population_frequency: 0.36
+    AT:
+      summary: "Slightly higher body weight set point at this locus."
+      detail: "One copy of the A allele. Worth about 0.4 kg on average."
+      population_frequency: 0.48
+    AA:
+      summary: "Higher body weight set point at this locus."
+      detail: >-
+        Two copies, worth about 0.8 kg on average. This is the variant that gets
+        called "the obesity gene", which oversells it by a wide margin. It also
+        responds to exercise: the association is attenuated in physically active
+        people, so it is not a fixed outcome.
+      population_frequency: 0.16
+
+- id: aldh2_alcohol
+  gene: ALDH2
+  name: Alcohol flush (ALDH2*2)
+  category: metabolic
+  evidence: strong
+  rsids: [rs671]
+
+  # G/A on the plus strand. A is the *2 (inactive) allele.
+  effect_allele: A
+
+  summary: >-
+    Whether you can break down acetaldehyde, the toxic intermediate produced when
+    your body processes alcohol.
+  effect_size: >-
+    AA carriers retain roughly 1-4% of typical enzyme activity. GA carriers
+    roughly 50%, because the defective subunit poisons the working ones rather
+    than simply being absent.
+  ancestry_note: >-
+    Essentially exclusive to East Asian populations, at roughly 0% frequency in
+    African and European ancestry. If you have no East Asian ancestry this result
+    is almost certainly GG and tells you nothing.
+  citations:
+    - "PMID:19320537"
+
+  interpretations:
+    GG:
+      summary: "Typical alcohol processing."
+      detail: "The near-universal result outside East Asian ancestry."
+      population_frequency: 0.7
+    AG:
+      summary: "Reduced ability to clear acetaldehyde. Alcohol flush likely."
+      detail: >-
+        About half of typical enzyme activity, which is enough to cause the
+        flushing reaction: facial redness, raised heart rate, nausea. Carriers
+        who drink despite it have a substantially raised risk of oesophageal
+        cancer, and this is one of the few findings in this catalog that is
+        genuinely actionable.
+      population_frequency: 0.25
+    AA:
+      summary: "Very little ability to clear acetaldehyde."
+      detail: >-
+        Under 5% of typical enzyme activity. Alcohol is poorly tolerated and
+        usually avoided without needing a test to say so.
+      population_frequency: 0.05

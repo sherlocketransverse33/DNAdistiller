@@ -1,0 +1,114 @@
+# Iron loading.
+#
+# HFE haemochromatosis is the strongest case in this catalog, and possibly the
+# strongest case in consumer genomics generally, for one reason: it is the rare
+# combination of common, serious, and fixable. Untreated iron overload causes
+# cirrhosis, diabetes, and cardiomyopathy. The test is a ferritin, which costs
+# about as much as lunch. The treatment is giving blood.
+#
+# It is also the marker most easily turned into a scare story, because the
+# genotype is far less predictive than it sounds. Penetrance is low and strongly
+# sex-dimorphic: about 28% of male C282Y homozygotes develop iron-overload
+# disease, against roughly 1-12% of females depending on the definition. Most
+# people who "have haemochromatosis genetically" never develop it. The
+# interpretations below are written to say that as loudly as they say the risk.
+
+- id: hfe_haemochromatosis
+  gene: HFE
+  name: Iron overload (haemochromatosis)
+  category: metabolic
+  evidence: strong
+
+  # Two SNPs, resolved together. C282Y alone is the one that matters; H63D alone
+  # is close to meaningless and is included only because the compound
+  # heterozygote (one of each) is a real, milder risk category that would
+  # otherwise be reported as two unremarkable results.
+  #
+  # Both are plus-strand as written: rs1800562 G>A (A = 282Tyr, the risk allele),
+  # rs1799945 C>G (G = 63Asp). Confirmed present on 23andMe.
+  rsids: [rs1800562, rs1799945]
+  derivation: hfe
+
+  summary: >-
+    The commonest inherited cause of iron overload in people of Northern European
+    descent. Serious when it develops, and it usually does not.
+  effect_size: >-
+    Iron-overload-related disease develops in about 28% of male C282Y homozygotes
+    (95% CI 18.8-40.2) and about 1.2% of female homozygotes (0.03-6.5) in Allen
+    2008; UK Biobank puts it nearer 25% male and 12.5% female. Compound
+    heterozygotes (C282Y/H63D) sit around 5% at ten years, with two thirds showing
+    no iron overload at all.
+  ancestry_note: >-
+    C282Y is largely a Northern European variant, at roughly 6% allele frequency
+    there and rare elsewhere. If you have no Northern European ancestry, a
+    negative result here says very little that you did not already know.
+  citations:
+    - "PMID:18199861"
+    - "PMID:36196271"
+
+  blood_test:
+    name: "Ferritin and transferrin saturation"
+    note: >-
+      This is the one that matters, and it settles the question the genotype only
+      raises. Transferrin saturation above about 45% with a raised ferritin is
+      what iron loading actually looks like; a normal pair means you are not
+      loading iron today, whatever your genotype says. Ask for a CRP alongside,
+      because ferritin rises with any inflammation and will mislead you on its
+      own.
+    verdict: supersedes
+
+  interpretations:
+    # Keys are the derived diplotype, produced by derive.hfe.
+    "none":
+      summary: "No iron-overload variants at this locus."
+      detail: "The common result."
+      population_frequency: 0.64
+    "h63d_carrier":
+      summary: "One copy of a minor iron-related variant. Not significant on its own."
+      detail: >-
+        H63D on its own, in one copy, is not associated with iron overload in any
+        meaningful way. It is reported only so that the result is not a silent
+        gap. This is not a finding.
+      population_frequency: 0.22
+    "h63d_homozygous":
+      summary: "Two copies of a minor iron-related variant. Still not significant alone."
+      detail: >-
+        H63D homozygosity without C282Y is close to null for iron overload.
+        Reported for completeness, not because it means much.
+      population_frequency: 0.02
+    "c282y_carrier":
+      summary: "One copy of the main haemochromatosis variant. No meaningful risk."
+      detail: >-
+        Roughly one in nine people of Northern European descent carries this.
+        Carriers do not develop iron overload from it. It matters for your
+        children only if their other parent is also a carrier.
+      population_frequency: 0.11
+    "compound_heterozygous":
+      summary: "One copy each of the two haemochromatosis variants. Mildly raised risk."
+      detail: >-
+        The compound heterozygote, C282Y/H63D. This is a real but modest risk
+        category: about 5% develop iron-overload-related disease over ten years,
+        and roughly two thirds show no evidence of iron overload at all. A single
+        ferritin and transferrin saturation resolves it, and is worth having once.
+      population_frequency: 0.02
+    "c282y_homozygous":
+      summary: "Two copies of the main haemochromatosis variant."
+      detail: >-
+        This is the genotype behind most clinical haemochromatosis, and it is
+        worth acting on, but the number people quote at you is usually wrong.
+        Around 28% of men with this genotype develop iron-overload-related
+        disease; for women the figure is somewhere between 1% and 12% depending
+        on how it is defined, largely because menstruation removes iron for
+        several decades. Most people with this genotype never become ill.
+
+        What to do is simple and cheap: ask for ferritin and transferrin
+        saturation. If they are normal you are not loading iron, and you repeat
+        it every few years. If they are raised, treatment is venesection, which
+        is giving blood, and it is fully effective when started before organ
+        damage. Caught early this is a condition that costs you an afternoon a
+        year and nothing else.
+
+        Worth knowing: UK Biobank found raised diabetes risk in C282Y
+        homozygotes even with normal ferritin, so this is a conversation with a
+        doctor rather than a single reassuring test.
+      population_frequency: 0.004

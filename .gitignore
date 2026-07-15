@@ -1,0 +1,121 @@
+# ============================================================================
+# GENETIC DATA — READ THIS BEFORE EDITING
+# ============================================================================
+# Genetic data is irrevocable. You cannot rotate your genome like a password.
+# A DNA file committed to a public repo — even in a commit that is later
+# reverted — is public forever, and it also exposes your blood relatives, who
+# never consented.
+#
+# These rules deliberately err on the side of blocking too much. If a rule
+# blocks a file you genuinely need, add a targeted exception below rather than
+# loosening the pattern.
+# ============================================================================
+
+# Raw data exports, by convention and by provider naming
+*.txt
+*.csv
+*.vcf
+*.vcf.gz
+*.zip
+*.gz
+*.bed
+*.bim
+*.fam
+genome_*.txt
+*raw_data*
+*RawData*
+23andMe*
+AncestryDNA*
+MyHeritage*
+FTDNA*
+LivingDNA*
+tellmeGen*
+
+# Generated profiles — these contain your actual results
+profile.*
+*.profile.md
+*.profile.json
+dnadistiller-profile*
+/out/
+/output/
+/personal/
+/data/personal/
+/data/private/
+
+# Targeted exceptions: project files that are safe to track.
+# Test fixtures MUST be synthetic — never a real person's data. See
+# tests/fixtures/README.md before adding any.
+!tests/fixtures/*.txt
+!tests/fixtures/*.csv
+!tests/fixtures/*.vcf
+!docs/**/*.txt
+!requirements*.txt
+!.github/**/*.txt
+!LICENSE.txt
+
+# ============================================================================
+# Python
+# ============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib60/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+.env
+.env.*
+!.env.example
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# ============================================================================
+# Editors / OS
+# ============================================================================
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.claude/
+
+# ============================================================================
+# Local reference material, never published.
+# ============================================================================
+
+# The original 2025 prototype, kept as reference. Delete before publishing.
+/DNA/
+
+# A third-party project studied while building this one. Someone else's code
+# under someone else's copyright: it must not end up in this repository.
+/additional-input/

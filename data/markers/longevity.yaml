@@ -1,0 +1,52 @@
+# Longevity-associated loci.
+#
+# Almost every "longevity gene" you will read about failed to replicate. The
+# SIRT1 literature is the cautionary tale. This file is short on purpose: only
+# APOE and FOXO3 have survived independent replication, and APOE lives in
+# neuro.yaml because that is where its effect actually is.
+
+- id: foxo3_longevity
+  gene: FOXO3
+  name: Longevity-associated variant
+  category: longevity
+  evidence: moderate
+  rsids: [rs2802292]
+
+  # G/T on the plus strand.
+  effect_allele: G
+
+  summary: >-
+    The one longevity-gene candidate besides APOE that has consistently
+    replicated.
+  effect_size: >-
+    Meta-analysis odds ratio around 1.36 (1.10-1.69) for reaching exceptional
+    old age. Modest, and stronger in men than women.
+  ancestry_note: >-
+    Replicated across Japanese-American, German, Chinese, Italian, and Danish
+    cohorts, which is unusually broad. The effect is stronger in Asian-ancestry
+    than European-ancestry samples.
+  citations:
+    - "PMID:18765803"
+    - "DOI:10.1073/pnas.0801030105"
+
+  interpretations:
+    TT:
+      summary: "The common variant at this longevity-associated locus."
+      detail: >-
+        Most people who live to 100 have this genotype, because most people have
+        this genotype. The variant shifts the odds slightly; it does not sort
+        people into groups.
+      population_frequency: 0.5
+    GT:
+      summary: "One copy of the longevity-associated variant."
+      detail: "Associated with modestly better odds of exceptional longevity."
+      population_frequency: 0.4
+    GG:
+      summary: "Two copies of the longevity-associated variant."
+      detail: >-
+        Associated with better odds of reaching exceptional old age, replicated
+        across many populations. Worth keeping in proportion: the effect is small,
+        it was measured in centenarians rather than in ordinary lifespan, and
+        nothing about it is actionable. Not smoking is worth vastly more than
+        this.
+      population_frequency: 0.1

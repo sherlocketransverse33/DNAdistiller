@@ -1,0 +1,139 @@
+# Inherited clotting risk.
+#
+# These two are unusual in this catalog: they are markers where the genotype
+# genuinely beats any blood test. There is no routine panel that tells you your
+# Factor V Leiden status before a clot happens, and the decisions they inform
+# (oestrogen contraception, HRT, surgery, pregnancy) are made in advance or not
+# at all.
+#
+# They are also the markers most often reported dishonestly, because the relative
+# risks sound terrifying and the absolute risks mostly do not. A 2.7x hazard on a
+# small baseline is still small. The interpretations below lead with absolute
+# risk for that reason.
+
+- id: f5_leiden
+  gene: F5
+  name: Factor V Leiden (clotting risk)
+  category: clotting
+  evidence: strong
+  rsids: [rs6025]
+
+  # STRAND TRAP. The literature universally describes Factor V Leiden as
+  # "G>A" (Arg534Gln), because F5 is transcribed from the MINUS strand. Consumer
+  # files report the PLUS strand, where the same variant reads C>T with T as the
+  # risk allele. Transcribing the paper's letters directly would invert this
+  # marker completely.
+  #
+  # This is also why the keys below are C/T and not G/A: they are written on the
+  # strand the file speaks, which is the rule for this catalog.
+  minus_strand: true
+  effect_allele: T
+
+  summary: >-
+    The commonest inherited clotting-risk variant in people of European descent.
+    Raises the risk of venous thrombosis, and matters most for decisions about
+    oestrogen, surgery, and pregnancy.
+  effect_size: >-
+    Population-cohort hazard ratios, which are the honest ones: 2.7 (1.8-3.8) for
+    heterozygotes and 18 (4.1-41) for homozygotes. Case-control studies report far
+    higher figures and are inflated by selection. In absolute terms a low-risk
+    heterozygote (non-smoker, under 40, healthy weight) carries roughly 0.7% risk
+    over ten years; a high-risk one (smoker, over 60, obese) roughly 10%.
+  ancestry_note: >-
+    Almost entirely a European variant, at roughly 2.5% allele frequency and
+    close to absent in African and East Asian ancestry.
+  citations:
+    - "PMID:14996674"
+
+  blood_test:
+    verdict: none
+    note: >-
+      There is no blood test that warns you in advance. An APC-resistance assay
+      exists but the genotype is the confirmatory standard, and either way the
+      question is usually asked before a first clot, not after. This is one of the
+      few results here that is worth knowing precisely because nothing else tells
+      you.
+
+  interpretations:
+    CC:
+      summary: "No Factor V Leiden variant."
+      detail: "The common result. About 95% of Europeans."
+      population_frequency: 0.951
+    CT:
+      summary: "One copy of Factor V Leiden."
+      detail: >-
+        Roughly 2.7x the rate of venous thrombosis, which sounds worse than it
+        is: for a low-risk carrier that is about 0.7% over ten years. The same
+        carrier who smokes, is over 60, and is obese sits nearer 10%, which is
+        the real lesson here. The modifiable factors dominate the genotype by a
+        wide margin.
+
+        Where it genuinely changes a decision: oestrogen-containing contraception
+        and HRT multiply the risk further, and this is worth raising with a
+        prescriber rather than deciding alone. Same for major surgery and
+        pregnancy, where short-term prophylaxis may be offered. It is not a
+        reason to avoid any of those things, it is a reason to mention it.
+      population_frequency: 0.0488
+    TT:
+      summary: "Two copies of Factor V Leiden. Uncommon."
+      detail: >-
+        About one in 1,600 Europeans. The hazard ratio is around 18, and absolute
+        ten-year risk runs from roughly 3% in an otherwise low-risk person to
+        substantially higher with smoking, age, and weight. This is worth a
+        conversation with a doctor, particularly before surgery, pregnancy, or
+        any oestrogen-containing medication. It is not a diagnosis and most
+        homozygotes never clot.
+      population_frequency: 0.0006
+
+- id: f2_prothrombin
+  gene: F2
+  name: Prothrombin G20210A (clotting risk)
+  category: clotting
+  evidence: strong
+  rsids: [rs1799963]
+
+  # Plus strand G>A, A the risk allele. Unlike F5, no flip needed.
+  effect_allele: A
+
+  summary: >-
+    The second commonest inherited clotting variant. Same territory as Factor V
+    Leiden and milder.
+  effect_size: >-
+    Heterozygotes carry a raised rate of venous thrombosis, commonly quoted
+    around 2-3x. We have not verified a precise figure from the primary
+    literature, so treat the magnitude as approximate rather than as a number to
+    reason with. As with Factor V Leiden, the absolute risk for most carriers is
+    low and the modifiable factors matter more.
+  ancestry_note: >-
+    Largely European, at roughly 1.3% allele frequency, and rare elsewhere.
+  citations:
+    - "PMID:14996674"
+
+  blood_test:
+    verdict: none
+    note: >-
+      As with Factor V Leiden, nothing in a routine panel tells you this before a
+      clot. Relevant to the same decisions: oestrogen, surgery, pregnancy.
+
+  interpretations:
+    GG:
+      summary: "No prothrombin clotting variant."
+      detail: "The common result, about 97.5% of Europeans."
+      population_frequency: 0.975
+    AG:
+      summary: "One copy of the prothrombin clotting variant."
+      detail: >-
+        A modestly raised rate of venous thrombosis on a low baseline. Worth
+        mentioning to a prescriber before oestrogen-containing contraception or
+        HRT, and before major surgery or during pregnancy. Carrying both this and
+        Factor V Leiden compounds the risk, so if both appear in this profile,
+        raise both.
+      population_frequency: 0.0249
+    AA:
+      summary: "Two copies of the prothrombin clotting variant. Very rare."
+      detail: >-
+        Roughly one in 6,300 Europeans, which is rare enough that the risk is
+        poorly characterised: the studies simply do not contain many of these
+        people. Worth confirming with a clinical-grade test and discussing with a
+        doctor rather than reasoning about from here.
+      population_frequency: 0.0002

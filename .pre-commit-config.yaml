@@ -1,0 +1,41 @@
+# Install once:  uv run pre-commit install
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-toml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+      # A real export is 15-25 MB. This is a blunt second net under the content
+      # check below, for the case where the regex is fooled but the size is not.
+      - id: check-added-large-files
+        args: [--maxkb=512]
+
+  - repo: local
+    hooks:
+      # The hook that actually matters here. Matches on content rather than
+      # filename, because .gitignore only stops the accident and the dangerous
+      # cases are the ones nobody predicted: a renamed export, a `git add -f`, or
+      # a real file dropped into tests/fixtures/ where the ignore rules relax.
+      - id: block-genetic-data
+        name: Block genetic data
+        entry: python scripts/block_genetic_data.py
+        language: system
+        stages: [pre-commit]
+        pass_filenames: true
+
+      - id: validate-catalog
+        name: Validate marker catalog
+        entry: python -m dnadistiller.catalog.validate
+        language: system
+        pass_filenames: false
+        files: ^data/markers/.*\.yaml$
